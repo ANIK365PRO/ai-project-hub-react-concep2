@@ -10,9 +10,12 @@ const Cart = ({carts, setCarts}) => {
 
     return (
         <div className='py-5 md:p-10 lg:p-20 bg-linear-to-r from-red-400 via-orange-400 to-amber-400'>
-            <h1 className='text-5xl font-black'>Total Cart: {carts.length}</h1>
+            <h1 className='text-5xl font-black'>Your Cart: {carts.length}</h1>
 
-            <div className='mt-10 space-y-4'>
+            {
+            carts.length === 0 ? <p className='text-center bg-black text-white text-2xl font-bold p-8 rounded-2xl mt-5'>Cart is empty. Please choose Ai models items. </p> : 
+            <>
+                <div className='mt-10 space-y-4'>
                 {
                     carts.map(item =><div className='border p-5 md:p-8 rounded-2xl bg-zinc-200 flex justify-between items-center'>
 
@@ -45,6 +48,14 @@ const Cart = ({carts, setCarts}) => {
                 </section>
 
             </div>
+                
+                
+            </>
+
+
+            }
+
+            
 
 
         </div>

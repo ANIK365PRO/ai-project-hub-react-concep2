@@ -1,8 +1,12 @@
 import React from 'react';
 
-const Cart = ({carts}) => {
+const Cart = ({carts, setCarts}) => {
     // console.log(carts)
    const totalPrice = carts.reduce((sum, item) => sum + item.price, 0)
+
+   const handlePayment = () => {
+        setCarts([])
+   }
 
     return (
         <div className='py-5 md:p-10 lg:p-20 bg-linear-to-r from-red-400 via-orange-400 to-amber-400'>
@@ -34,6 +38,10 @@ const Cart = ({carts}) => {
                 <section className='flex justify-between items-center bg-black text-white text-2xl font-bold p-8 rounded-2xl'>
                     <h4>Total</h4>
                     <p>${totalPrice}</p>
+                </section>
+                <section className='btn flex justify-center items-center bg-red-600 text-white text-2xl font-bold py-8 rounded-2xl'
+                onClick={handlePayment}>
+                   Proceed to checkout
                 </section>
 
             </div>

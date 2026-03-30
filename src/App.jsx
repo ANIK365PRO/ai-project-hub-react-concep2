@@ -59,6 +59,7 @@ function App() {
 
      {activeTab === 'Cart' && <Cart
             carts={carts}
+            setCarts={setCarts}
             ></Cart>}
 
       <Footer></Footer>

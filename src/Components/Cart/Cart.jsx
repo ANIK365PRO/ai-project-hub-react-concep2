@@ -7,6 +7,10 @@ const Cart = ({carts, setCarts}) => {
    const handlePayment = () => {
         setCarts([])
    }
+   const handleDelete = (item) =>{
+        const filteredArray = carts.filter(cart => cart.id !== item.id)
+        setCarts(filteredArray)
+   }
 
     return (
         <div className='py-5 md:p-10 lg:p-20 bg-linear-to-r from-red-400 via-orange-400 to-amber-400'>
@@ -17,7 +21,7 @@ const Cart = ({carts, setCarts}) => {
             <>
                 <div className='mt-10 space-y-4'>
                 {
-                    carts.map(item =><div className='border p-5 md:p-8 rounded-2xl bg-zinc-200 flex justify-between items-center'>
+                    carts.map(item =><div key={item.id} className='border p-5 md:p-8 rounded-2xl bg-zinc-200 flex justify-between items-center'>
 
                         <section className='flex items-center gap-2.5'>
                            <div>
@@ -29,10 +33,13 @@ const Cart = ({carts, setCarts}) => {
                            </div>
                         </section>
                         <section className='flex gap-3 items-center'>
-                            <p className='md:text-2xl font-bold'>
-                                ${item.price}</p>
-                            
-                            <p className='btn md:not-visited:text-xl text-red-600'>Remove</p>
+                            <p className='text-xl md:text-2xl font-bold'>
+                                ${item.price}/month</p>
+                        
+                            <button
+                            onClick={()=>handleDelete(item)}
+                            className='btn  rounded-full bg-error border-red-500 hover:bg-red-500 h-10 w-10 text-white'>X</button>
+                         
                         </section>
 
                     </div>)

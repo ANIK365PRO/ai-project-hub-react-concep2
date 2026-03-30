@@ -45,7 +45,7 @@ function App() {
           type="radio" 
           name="my_tabs_1" 
           className="tab w-40 rounded-2xl text-xl font-semibold" 
-          aria-label="Cart"
+          aria-label= {`Cart (${carts.length})`}
           onClick={() => handleActiveTab('Cart')}  />
           
       </div>

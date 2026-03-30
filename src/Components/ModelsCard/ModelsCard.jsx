@@ -24,7 +24,7 @@ const ModelsCard = ({models, carts, setCarts}) => {
 
             <section>{models.description}</section>
 
-                <section className='text-lg font-semibold'>Price: {models.price}</section>
+                <section className='text-lg font-semibold'>Price: $ {models.price}</section>
                                 
                         
             </div>

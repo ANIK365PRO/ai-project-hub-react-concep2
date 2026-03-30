@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Cart = ({carts}) => {
-    console.log(carts)
+    // console.log(carts)
+   const totalPrice = carts.reduce((sum, item) => sum + item.price, 0)
+
     return (
-        <div className=' md:p-10 lg:p-20 bg-linear-to-r from-red-400 via-orange-400 to-amber-400'>
+        <div className='py-5 md:p-10 lg:p-20 bg-linear-to-r from-red-400 via-orange-400 to-amber-400'>
             <h1 className='text-5xl font-black'>Total Cart: {carts.length}</h1>
 
             <div className='mt-10 space-y-4'>
@@ -31,7 +33,7 @@ const Cart = ({carts}) => {
 
                 <section className='flex justify-between items-center bg-black text-white text-2xl font-bold p-8 rounded-2xl'>
                     <h4>Total</h4>
-                    <p>$ 0</p>
+                    <p>${totalPrice}</p>
                 </section>
 
             </div>

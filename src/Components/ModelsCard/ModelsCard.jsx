@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const ModelsCard = ({models, carts, setCarts}) => {
     const [isSubscribe, setIsSubscribe] = useState(false)
     const handleIsSubscribe = () =>{
         setIsSubscribe(true)
         setCarts([...carts, models])
+        toast.success(`${models.title} ,  AI is added to cart successfully`)
     }
 
     return (

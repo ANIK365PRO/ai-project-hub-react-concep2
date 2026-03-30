@@ -4,6 +4,13 @@ import { toast } from 'react-toastify';
 const ModelsCard = ({models, carts, setCarts}) => {
     const [isSubscribe, setIsSubscribe] = useState(false)
     const handleIsSubscribe = () =>{
+
+        const isFound = carts.find(unit => unit.id === models.id)
+        if(isFound){
+            toast.error(`${models.title} ,  AI is already added!!!`)
+            return
+        }
+        
         setIsSubscribe(true)
         setCarts([...carts, models])
         toast.success(`${models.title} ,  AI is added to cart successfully`)
